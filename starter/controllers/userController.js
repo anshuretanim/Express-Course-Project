@@ -1,0 +1,38 @@
+const fs = require('fs');
+
+
+
+exports.getAllUsers = (req,res) => {
+    res.status(500).json({
+        status: 'error',
+        message: 'Not yet implemented.'
+    });   
+}
+
+exports.getUser = (req,res) => {
+    res.status(500).json({
+        status: 'error',
+        message: 'Not yet implemented.'
+    });   
+}
+
+exports.createUser = (req,res) => {
+    res.status(500).json({
+        status: 'error',
+        message: 'Not yet implemented.'
+    });   
+}
+
+exports.updateUser = (req,res) => {
+    res.status(500).json({
+        status: 'error',
+        message: 'Not yet implemented.'
+    });   
+}
+
+exports.deleteUsers = (req,res) => {
+    res.status(500).json({
+        status: 'error',
+        message: 'Not yet implemented.'
+    });   
+}
