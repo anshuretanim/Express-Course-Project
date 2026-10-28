@@ -5,13 +5,15 @@ const morgan = require("morgan");
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 
+const app = express();
+
 const AppError = require('./utils/appError');
 
 app.use(morgan("dev"));
-const app = express();
+
 
 app.use(express.json());
-
+app.use(express.static(`${__dirname}/public`));
 
 // MIDDLEWARES //
 app.use((req,res,next) => {
@@ -39,7 +41,7 @@ app.use((req,res,next) => {
 app.use("/api/v1/tours", tourRouter);
 app.use("/api/v1/users", userRouter);
 
-app.all('*', (req,res,next) => {
+app.all('/{*splat}', (req,res,next) => {
 
     next(new AppError(`Can't find ${req.orignialUrl} on this server`, 404));
 });

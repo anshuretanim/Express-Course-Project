@@ -1,19 +1,19 @@
-app.all('*', (req, res, next) => {
-    next(new AppError());
-});
+// app.all('*', (req, res, next) => {
+//     next(new AppError());
+// });
 
-app.user((err, req, res, next) => {
-    console.log(err.stack);
+// app.user((err, req, res, next) => {
+//     console.log(err.stack);
 
-    err.statusCode = err.statusCode || 500;
-    err.status = err.status || 'error';
+//     err.statusCode = err.statusCode || 500;
+//     err.status = err.status || 'error';
 
-    res.status(err.statusCode).json({
-        status: err.status,
-        message: err.message
-    });
-});
+//     res.status(err.statusCode).json({
+//         status: err.status,
+//         message: err.message
+//     });
+// });
 
 
-modeule.exports = app;
+// modeule.exports = app;
 

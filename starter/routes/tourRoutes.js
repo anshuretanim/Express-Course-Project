@@ -3,14 +3,7 @@ const tourController = require('../controllers/tourController');
 
 const tourRouter = express.Router();
 
-router.param('id', (req,res,next, val) => {
-    console.log(`Tour ID is ${val}`);
-    next();
-});
-
-const tours = JSON.parse(
-  fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`),
-);
+tourRouter.param('id', tourController.checkId);
 
 tourRouter
 .route("/")
