@@ -1,6 +1,9 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const { dirname } = require("path");
 const morgan = require("morgan");
+
+dotenv.config({path: './config.env'});
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
@@ -9,8 +12,9 @@ const app = express();
 
 const AppError = require('./utils/appError');
 
+if(process.env.NODE_ENV === "development"){
 app.use(morgan("dev"));
-
+} //we want the logging to only happen if app is in development.
 
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
